@@ -1395,9 +1395,9 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     background-image:
-        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.14), transparent 30%),
-        radial-gradient(circle at 85% 12%, rgba(192, 132, 252, 0.12), transparent 32%),
-        radial-gradient(circle at 48% 85%, rgba(167, 139, 250, 0.08), transparent 28%);
+        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.10), transparent 30%),
+        radial-gradient(circle at 85% 12%, rgba(192, 132, 252, 0.08), transparent 32%),
+        radial-gradient(circle at 48% 85%, rgba(167, 139, 250, 0.05), transparent 28%);
 }
 
 /* ===== 3) Header + nav ===== */
@@ -1447,7 +1447,10 @@ header {
 
 /* ===== 4) Hero (головний текст по центру) ===== */
 .hero {
-    background: linear-gradient(115deg, rgba(0,0,0,0.68), rgba(16,10,30,0.72)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
+    background: linear-gradient(115deg, rgba(0,0,0,0.82), rgba(12,6,24,0.84)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero .container {
@@ -1523,7 +1526,7 @@ header {
 }
 
 .section-title {
-    text-align: center;
+    text-align: left;
 }
 
 .course-detail-meta,
