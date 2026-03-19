@@ -1369,55 +1369,98 @@ body.no-scroll {
     .course-detail-card { padding: 20px; border-radius: 20px; }
 }
 
-/* ===== ORGANIZED THEME OVERRIDES: Minimalist Dark Mono (Lively) ===== */
+/* ===== ORGANIZED THEME OVERRIDES: Premium Aurora Editorial ===== */
 /* -----------------------------------------------------------------
-   Мінімалістична темна тема для всього сайту:
-   - монохромна база (чорний/графіт)
-   - легкі «живі» акценти (mild cyan)
-   - чиста типографіка й охайні поверхні
+   Повний редизайн сайту без зміни контенту та функціоналу.
+   Залишаємо всі секції, картки, відгуки, викладачів, профіль, курси,
+   але даємо більш дорогий, сучасний, чистий та виразний вигляд.
 ------------------------------------------------------------------ */
 
 /* ===== 1) Theme tokens ===== */
 :root {
-    --bg-main: #060608;
-    --bg-soft: #0d0d12;
-    --surface: #141419;
-    --surface-2: #1a1a22;
-    --text-main: #f4f5f7;
-    --text-muted: #afb4bf;
-    --accent: #5eead4;
-    --accent-2: #7dd3fc;
-    --accent-3: #60a5fa;
-    --border-soft: rgba(148, 163, 184, 0.24);
-    --shadow: 0 18px 42px rgba(0, 0, 0, 0.46);
+    --bg-main: #06070b;
+    --bg-soft: #0e1220;
+    --surface: rgba(15, 19, 34, 0.82);
+    --surface-strong: rgba(18, 24, 43, 0.95);
+    --surface-light: rgba(255, 255, 255, 0.05);
+    --text-main: #f6f7fb;
+    --text-muted: #aeb8ca;
+    --heading: #ffffff;
+    --accent: #8b5cf6;
+    --accent-2: #38bdf8;
+    --accent-3: #22c55e;
+    --border-soft: rgba(148, 163, 184, 0.18);
+    --border-accent: rgba(139, 92, 246, 0.28);
+    --shadow-soft: 0 22px 48px rgba(0, 0, 0, 0.34);
+    --shadow-card: 0 18px 38px rgba(4, 8, 20, 0.42);
+    --radius-xl: 32px;
+    --radius-lg: 24px;
+    --radius-md: 18px;
 }
 
-/* ===== 2) Global base ===== */
+/* ===== 2) Base page ===== */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
     background-image:
-        radial-gradient(circle at 12% 12%, rgba(125, 211, 252, 0.07), transparent 32%),
-        radial-gradient(circle at 82% 10%, rgba(94, 234, 212, 0.06), transparent 34%),
-        radial-gradient(circle at 50% 88%, rgba(96, 165, 250, 0.05), transparent 30%);
+        radial-gradient(circle at 14% 16%, rgba(56, 189, 248, 0.10), transparent 30%),
+        radial-gradient(circle at 82% 10%, rgba(139, 92, 246, 0.14), transparent 34%),
+        radial-gradient(circle at 52% 82%, rgba(34, 197, 94, 0.06), transparent 26%),
+        linear-gradient(180deg, #06070b 0%, #090d18 42%, #06070b 100%);
 }
 
-/* ===== 3) Header + nav ===== */
+.container {
+    max-width: 1360px;
+}
+
+main.main-content > section,
+#teachers,
+#benefits,
+#faq {
+    position: relative;
+}
+
+/* ===== 3) Header / nav ===== */
 header {
-    background: rgba(8, 8, 12, 0.92);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    backdrop-filter: blur(11px);
+    background: rgba(8, 10, 18, 0.72);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.header-content {
+    min-height: 86px;
+}
+
+.header-left-group {
+    gap: 34px;
+}
+
+.main-logo {
+    height: 70px;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.25));
+}
+
+.main-nav {
+    gap: 24px;
 }
 
 .nav-item a,
-.contact-row,
-.header-course-link,
 .dropdown a,
-.dropdown-profile a,
-.section-title,
-.course-detail-title,
-.panel-title {
+.header-course-link,
+.contact-row,
+.dropdown-profile a {
     color: var(--text-main);
+}
+
+.nav-item a {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .arrow,
@@ -1431,175 +1474,335 @@ header {
 .contacts-dropdown,
 .header-courses-dropdown,
 .dropdown-profile {
-    background: rgba(15, 15, 20, 0.98);
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow);
+    background: rgba(11, 15, 28, 0.96);
+    border: 1px solid var(--border-accent);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
 }
 
 .dropdown a,
 .header-course-link,
 .contact-row,
 .dropdown-profile a {
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .dropdown a:hover,
 .header-course-link:hover,
 .dropdown-profile a:hover {
-    background: linear-gradient(120deg, #1f2937, #334155);
-    color: #ffffff;
+    background: linear-gradient(120deg, rgba(56, 189, 248, 0.18), rgba(139, 92, 246, 0.24));
+    color: #fff;
+}
+
+.auth-btn-oval {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(139, 92, 246, 0.26));
+    border: 1px solid rgba(125, 211, 252, 0.38);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
 }
 
 /* ===== 4) Hero ===== */
 .hero {
-    background: linear-gradient(115deg, rgba(0,0,0,0.80), rgba(13,16,24,0.76)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
+    min-height: 640px;
+    margin-top: 72px;
+    background:
+        linear-gradient(120deg, rgba(5, 7, 13, 0.78), rgba(9, 13, 26, 0.7)),
+        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.hero .container {
-    width: 100%;
+.hero::before,
+.hero::after {
+    filter: blur(22px);
+    opacity: 0.75;
+}
+
+.hero::before {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.58), rgba(56, 189, 248, 0));
+}
+
+.hero::after {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.52), rgba(139, 92, 246, 0));
 }
 
 .hero-content {
-    text-align: center;
-    margin: 0 auto;
     max-width: 980px;
-}
-
-.hero-content h1,
-.hero-subtitle {
+    margin: 0 auto;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 22px 0;
 }
 
 .hero-content h1 {
-    color: #f8fafc;
-    text-shadow: 0 0 18px rgba(125, 211, 252, 0.18);
+    color: var(--heading);
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.12);
+    margin-bottom: 22px;
 }
 
 .hero-subtitle {
-    color: #d8dde7;
-    max-width: 860px;
+    color: #dde6f6;
+    max-width: 880px;
+    line-height: 1.55;
 }
 
-/* ===== 5) Buttons / CTA ===== */
-.submit-btn,
-.help-submit-btn,
-.auth-btn-oval,
+/* ===== 5) Floating nav ===== */
+.island-nav {
+    background: rgba(10, 13, 24, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(16px);
+}
+
+.nav-anchor {
+    color: #dbe6f5;
+    font-weight: 700;
+}
+
 .nav-anchor.active {
-    background: linear-gradient(120deg, #374151, #4b5563);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(139, 92, 246, 0.95));
     color: #ffffff;
-    border: 1px solid rgba(125, 211, 252, 0.45);
 }
 
-.submit-btn:hover,
-.help-submit-btn:hover,
-.auth-btn-oval:hover {
-    background: linear-gradient(120deg, #4b5563, #64748b);
-    box-shadow: 0 10px 22px rgba(125, 211, 252, 0.20);
-}
-
-/* ===== 6) Content cards / sections ===== */
+/* ===== 6) Shared card system ===== */
 .course-card,
-.benefit-card,
+.help-card,
 .review-card,
 .teacher-card,
+.benefit-card,
 .faq-item,
-.help-card,
 .course-detail-card,
+.course-detail-box,
 .my-course-item,
 .empty-note,
 .about-us-content p,
-.course-detail-box,
-.course-detail-list li {
-    background: linear-gradient(150deg, var(--surface) 0%, var(--surface-2) 100%);
+.course-detail-list li,
+.diploma-card {
+    background: linear-gradient(180deg, rgba(16, 21, 38, 0.9), rgba(10, 14, 26, 0.98));
     border: 1px solid var(--border-soft);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
     color: var(--text-main);
 }
 
+.course-card,
+.help-card,
+.review-card,
+.teacher-card,
+.benefit-card {
+    overflow: hidden;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.course-card:hover,
+.help-card:hover,
+.review-card:hover,
+.teacher-card:hover,
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 48px rgba(0, 0, 0, 0.34);
+    border-color: rgba(56, 189, 248, 0.28);
+}
+
+.course-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.course-card h3,
+.help-card h3,
+.teacher-card h3,
+.benefit-card h3,
+.section-title,
+.course-detail-title,
+.panel-title,
+.review-name {
+    color: var(--heading);
+}
+
 .section-title {
+    font-size: 44px;
+    margin-bottom: 34px;
     text-align: left;
 }
 
+.course-section,
+.help-section,
+.reviews-section,
+.teachers-section,
+.benefits-section,
+.faq-section {
+    margin: 112px 0;
+}
+
+.course-grid,
+.reviews-grid,
+.teachers-grid,
+.benefits-grid {
+    gap: 26px;
+}
+
+/* ===== 7) Specific sections ===== */
+.help-card {
+    background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.12), transparent 55%),
+        linear-gradient(180deg, rgba(16, 21, 38, 0.94), rgba(10, 14, 26, 0.98));
+}
+
+.review-card,
+.teacher-card,
+.benefit-card {
+    padding: 28px;
+}
+
+.review-card {
+    position: relative;
+}
+
+.review-card::before {
+    content: "“";
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 68px;
+    line-height: 1;
+    color: rgba(139, 92, 246, 0.18);
+    font-family: Georgia, serif;
+}
+
+.teacher-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+}
+
+.benefit-card {
+    background:
+        linear-gradient(145deg, rgba(139, 92, 246, 0.10), transparent 60%),
+        linear-gradient(180deg, rgba(16, 21, 38, 0.94), rgba(10, 14, 26, 0.98));
+}
+
+.faq-item {
+    overflow: hidden;
+}
+
+.faq-question {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-answer p,
 .course-detail-meta,
 .panel-subtitle,
 .my-course-item span,
 .empty-note,
-.faq-answer p {
+.contact-row,
+.course-detail-description {
     color: var(--text-muted);
 }
 
+/* ===== 8) Buttons ===== */
+.submit-btn,
+.help-submit-btn,
+.course-subscribe-btn,
+.nav-anchor.active {
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    color: #fff;
+    border: 1px solid rgba(125, 211, 252, 0.4);
+    box-shadow: 0 12px 26px rgba(56, 189, 248, 0.18);
+}
+
+.submit-btn:hover,
+.help-submit-btn:hover,
+.course-subscribe-btn:hover,
+.auth-btn-oval:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(56, 189, 248, 0.22);
+}
+
+.back-btn,
+.close-btn {
+    background: rgba(17, 22, 37, 0.95);
+    color: #eef2ff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.back-btn:hover,
+.close-btn:hover {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(139, 92, 246, 0.22));
+    color: #fff;
+}
+
+/* ===== 9) Detail page / modal surfaces ===== */
 .course-detail-card {
-    border-left: 4px solid var(--accent-3);
+    border-left: 4px solid var(--accent-2);
+    border-radius: var(--radius-xl);
+}
+
+.course-detail-price {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .course-detail-list li::before {
-    background: rgba(125, 211, 252, 0.15);
+    background: rgba(56, 189, 248, 0.14);
     color: var(--accent-2);
 }
 
-/* ===== 7) Modals + forms ===== */
 .auth-modal-overlay,
 .panel-overlay {
-    background: rgba(0, 0, 0, 0.66);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .glass-effect {
-    background: linear-gradient(145deg, rgba(18,18,24,0.94), rgba(23,23,30,0.92));
-    border: 1px solid var(--border-soft);
+    background: linear-gradient(180deg, rgba(15, 19, 34, 0.96), rgba(11, 15, 27, 0.98));
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: 0 28px 54px rgba(0, 0, 0, 0.34);
     color: var(--text-main);
 }
 
 .auth-form input,
 .diploma-select {
-    background: #101218;
-    border: 1px solid rgba(148, 163, 184, 0.42);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     color: #f8fafc;
 }
 
-.close-btn {
-    color: #e8ebf2;
-    border-color: rgba(148, 163, 184, 0.7);
-    background: rgba(19, 22, 30, 0.86);
+.auth-form input:focus,
+.diploma-select:focus {
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
 }
 
-.close-btn:hover {
-    background: linear-gradient(120deg, #374151, #4b5563);
-    color: #fff;
-    border-color: transparent;
-}
-
-/* ===== 8) Footer ===== */
+/* ===== 10) Footer ===== */
+footer,
 .footer {
-    background: linear-gradient(120deg, #07080d, #11131a);
-    color: #cbd5e1;
+    background: linear-gradient(180deg, #080b13, #06070b);
+    color: #ced8ea;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== 9) Responsive polish (laptops + phones) ===== */
+/* ===== 11) Responsive redesign ===== */
 @media (max-width: 1280px) {
     .container {
-        padding: 0 18px;
-    }
-
-    .main-nav {
-        gap: 18px;
+        padding: 0 20px;
     }
 
     .section-title {
-        font-size: 36px;
-        margin-bottom: 32px;
+        font-size: 38px;
     }
 
     .hero-content h1 {
-        font-size: clamp(2.8rem, 7vw, 5rem);
+        font-size: clamp(3rem, 7vw, 5.2rem);
     }
 
-    .hero-subtitle {
-        font-size: clamp(1rem, 2.4vw, 1.55rem);
+    .course-img {
+        height: 220px;
     }
 }
 
@@ -1607,7 +1810,7 @@ header {
     .header-content,
     .header-left-group {
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 14px;
     }
 
     .main-nav {
@@ -1615,11 +1818,7 @@ header {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px 14px;
-    }
-
-    .nav-item {
-        padding: 8px 0;
+        gap: 10px 16px;
     }
 
     .header-right-group {
@@ -1627,12 +1826,14 @@ header {
     }
 
     .hero {
-        min-height: 460px;
-        margin-top: 72px;
+        min-height: 540px;
     }
 
-    .course-detail-card {
-        padding: 28px;
+    .course-grid,
+    .reviews-grid,
+    .teachers-grid,
+    .benefits-grid {
+        gap: 20px;
     }
 
     .glass-effect,
@@ -1649,21 +1850,25 @@ header {
     }
 
     .main-logo {
-        height: 62px;
+        height: 60px;
     }
 
-    .hero-content {
-        max-width: 100%;
-        padding: 0 8px;
-    }
-
-    .hero-subtitle {
-        font-size: clamp(1rem, 3.8vw, 1.35rem);
+    .hero {
+        min-height: 470px;
     }
 
     .section-title {
         font-size: 32px;
-        margin-bottom: 26px;
+        margin-bottom: 24px;
+    }
+
+    .course-section,
+    .help-section,
+    .reviews-section,
+    .teachers-section,
+    .benefits-section,
+    .faq-section {
+        margin: 84px 0;
     }
 }
 
@@ -1672,8 +1877,13 @@ header {
         padding: 0 14px;
     }
 
+    .header-content {
+        align-items: flex-start;
+    }
+
     .main-nav {
-        gap: 8px 10px;
+        justify-content: flex-start;
+        gap: 8px 12px;
     }
 
     .nav-item a {
@@ -1681,15 +1891,16 @@ header {
     }
 
     .hero {
-        min-height: 380px;
+        min-height: 400px;
     }
 
     .hero-content h1 {
-        font-size: clamp(2.1rem, 11vw, 3.1rem);
-        letter-spacing: 0.05em;
+        font-size: clamp(2.1rem, 10vw, 3rem);
+        letter-spacing: 0.04em;
     }
 
     .hero-subtitle {
+        font-size: 1rem;
         letter-spacing: 0.02em;
     }
 
@@ -1701,9 +1912,16 @@ header {
         padding-top: 84px;
     }
 
-    .course-detail-card {
+    .course-detail-card,
+    .review-card,
+    .teacher-card,
+    .benefit-card {
         padding: 20px;
         border-radius: 18px;
+    }
+
+    .course-img {
+        height: 200px;
     }
 
     .auth-form input,
